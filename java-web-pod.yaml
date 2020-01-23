@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: java-web-project
+spec:
+    containers:
+    - name: java-web-project
+      image: dogdemo/java_web_project:latest
+      ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 7199
+          name: jmx
+      env:
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
