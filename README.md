@@ -16,7 +16,7 @@ helm install datadog-agent --set datadog.apiKey=<DATADOG_API_KEY> stable/datadog
 
 # METHOD 1 - Deploy the jmx version of the Datadog Agent and enable the jmx integration using K8s annotations
 
-### Note: These metrics will be prefixed with `jvm.` in Datadog.
+### Note: These metrics will be prefixed with `jvm.` in Datadog and are not tomcat specific metrics.  The list of metrics can be found [here](https://docs.datadoghq.com/integrations/java/?tab=host#data-collected).
 
 1. Modify datadog-values-jmx.yaml and update with your API key.  Then run:
 
@@ -32,7 +32,7 @@ kubectl create -f java-app-project-annotations.yaml
 
 # METHOD 2 - Deploy Datadog Agent with jmx and use tomcat configmap
 
-### Note: These metrics will be prefixed with `tomcat.` in Datadog.
+### Note: These metrics will be prefixed with `tomcat.` in Datadog.  The list of metrics can be found [here](https://docs.datadoghq.com/integrations/tomcat/#data-collected).
 
 1. If you previously deployed the java application with K8s annotations delete it.
 

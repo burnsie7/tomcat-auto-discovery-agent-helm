@@ -22,8 +22,3 @@ spec:
           name: http
         - containerPort: 7199
           name: jmx
-      env:
-        - name: DD_AGENT_HOST
-          valueFrom:
-            fieldRef:
-              fieldPath: status.hostIP
